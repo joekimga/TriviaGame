@@ -82,4 +82,63 @@ var questions = [
   
 }];  
   
+
+
+// Variable showQuestion will hold the setInterval when we start the slideshow
+var showQuestion;
+
+// Count will keep track of the index of the currently displaying picture.
+var count = 0;
+
+// TODO: Use jQuery to run "startSlideshow" when we click the "start" button.
+$("#start").click(startSlideshow);
+
+// TODO: Use jQuery to run "stopSlideshow" when we click the "stop" button.
+$("#stop").click(stopSlideshow);
+
+
+// This function will replace display whatever question it's given
+// in the 'src' attribute of the img tag.
+function displayQuestion() {
+  $("#question-holder").html("<img src=" + question[count] + " width='400px'>");
+}
+
+function nextQuestion() {
+  //  TODO: Increment the count by 1.
+  count++;
+
+  // TODO: Show the loading gif in the "question-holder" div.
+  $("#question-holder").html("<img src='images/loading.gif' width='200px'/>");
+
+  // TODO: Use a setTimeout to run displayImagquestione after 1 second.
+  setTimeout(displayQuestion, 1000);
+
+  // TODO: If the count is the same as the length of the question array, reset the count to 0.
+  if (count === question.length) {
+    count = 0;
+  }
+}
+
+function startSlideshow() {
+
+  // TODO: Use showImage to hold the setInterval to run nextImage.
+  showImage = setInterval(nextQuestion, 3000);
+
+}
+
+function stopSlideshow() {
+
+  // TODO: Put our clearInterval here:
+  clearInterval(showQuestion);
+
+}
+
+
+
+
+
+
+
+
+
 }
