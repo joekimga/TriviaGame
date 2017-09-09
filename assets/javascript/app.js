@@ -1,6 +1,9 @@
 $(document).ready(function() {
   
 
+var audio = new Audio("soulgloextended.mp3");
+audio.play();
+
 //Score variables
 var correct = 0;
 var incorrect = 0;
